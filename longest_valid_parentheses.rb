@@ -10,14 +10,18 @@ def longest_valid_parentheses(string)
       if chunk.length > 0 && counter > 0
         chunk << el
         counter -= 1
+      else
+        counter -= 1
       end
-      if counter == 0
-        max_length = chunk.length
+      if counter < 0
+        max_length = chunk.length if chunk.length > max_length
         chunk = []
+        counter = 0
       end
     end
   end
-  p max_length
+  max_length = chunk.length if chunk.length > max_length
+  max_length
 end
 
 string1 = ")()()()))"
