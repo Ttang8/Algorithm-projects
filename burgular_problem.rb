@@ -11,10 +11,9 @@ def burgular(array)
       houses << houses[idx+1]
     end
   end
-  p houses
   max = calc.max
   index = calc.index(max)
-  [houses[index], calc[index]]
+  p [houses[index], calc[index]]
 end
 
 arr = [1,5,16,20,3,7,10,5,10,24,17]

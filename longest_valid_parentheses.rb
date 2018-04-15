@@ -1,8 +1,23 @@
 def longest_valid_parentheses(string)
   max_length = 0
-  length = 0
   counter = 0
-  
+  chunk = []
+  string.each_char do |el|
+    if el == "("
+      chunk << el
+      counter += 1
+    else
+      if chunk.length > 0 && counter > 0
+        chunk << el
+        counter -= 1
+      end
+      if counter == 0
+        max_length = chunk.length
+        chunk = []
+      end
+    end
+  end
+  p max_length
 end
 
 string1 = ")()()()))"
